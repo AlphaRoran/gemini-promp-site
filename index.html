@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Prompt Master</h1>
+        <nav>
+            <a href="#" id="nav-builder">Prompt Builder</a>
+            <a href="#" id="nav-templates">Template Library</a>
+            <a href="#" id="nav-agents">Agent Factory</a>
+            <a href="#" id="nav-library">Overall Library</a>
+        </nav>
+        <button id="theme-toggle">Toggle Theme</button>
+    </header>
+
+    <main>
+        <section id="page-builder" class="page active">
+            <h2>Prompt Builder</h2>
+            <div class="prompt-part">
+                <label for="persona-select">Persona:</label>
+                <select id="persona-select">
+                    <option value="">-- Select Persona --</option>
+                    </select>
+                <button class="add-new-btn" data-part="persona">Add New</button>
+            </div>
+            <div class="prompt-part">
+                <label for="goal-select">Goal/Task:</label>
+                <select id="goal-select">
+                    <option value="">-- Select Goal --</option>
+                    </select>
+                 <button class="add-new-btn" data-part="goal">Add New</button>
+            </div>
+             <div class="prompt-part">
+                <label for="context-select">Context:</label>
+                <select id="context-select">
+                    <option value="">-- Select Context --</option>
+                    </select>
+                 <button class="add-new-btn" data-part="context">Add New</button>
+            </div>
+             <div class="prompt-part">
+                <label for="format-select">Format/Tone:</label>
+                <select id="format-select">
+                    <option value="">-- Select Format/Tone --</option>
+                    </select>
+                 <button class="add-new-btn" data-part="format">Add New</button>
+            </div>
+
+            <div class="generated-prompt">
+                <h3>Generated Prompt:</h3>
+                <textarea id="final-prompt" rows="10" readonly></textarea>
+                <button id="copy-prompt-btn">Copy Prompt</button>
+            </div>
+
+             <div class="template-actions">
+                <input type="text" id="template-name" placeholder="Enter template name to save">
+                <button id="save-template-btn">Save as Template</button>
+             </div>
+
+             <div class="history">
+                 <h3>Prompt History</h3>
+                 <ul id="prompt-history-list">
+                     </ul>
+             </div>
+        </section>
+
+        <section id="page-templates" class="page">
+            <h2>Template Library</h2>
+            <label for="load-template-select">Load Template:</label>
+            <select id="load-template-select">
+                <option value="">-- Select Template --</option>
+                </select>
+            <button id="load-template-btn">Load Selected Template</button>
+            <div id="template-list-management">
+                 </div>
+        </section>
+
+        <section id="page-agents" class="page">
+            <h2>Agent Factory</h2>
+            <div class="agent-form">
+                <label for="agent-name">Agent Name:</label>
+                <input type="text" id="agent-name">
+
+                <label for="agent-personality">Personality:</label>
+                <textarea id="agent-personality" rows="3"></textarea>
+
+                <label for="agent-tools">Tools (comma-separated):</label>
+                <input type="text" id="agent-tools">
+
+                <label for="agent-task">Primary Task:</label>
+                <textarea id="agent-task" rows="3"></textarea>
+
+                <label for="agent-goal">Overall Goal:</label>
+                <textarea id="agent-goal" rows="3"></textarea>
+
+                <button id="save-agent-btn">Save Agent Blueprint</button>
+            </div>
+             <div id="agent-list-management">
+                 </div>
+        </section>
+
+        <section id="page-library" class="page">
+            <h2>Overall Library</h2>
+            <p>Manage all your saved items here.</p>
+            <div id="library-content">
+                 </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Prompt Master App</p>
+    </footer>
+
+    <div id="add-part-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title">Add New Item</h3>
+            <label for="part-nickname">Nickname (for dropdown):</label>
+            <input type="text" id="part-nickname">
+            <label for="part-content">Full Content:</label>
+            <textarea id="part-content" rows="5"></textarea>
+            <button id="save-part-btn">Save</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
